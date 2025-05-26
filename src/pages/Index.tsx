@@ -1,36 +1,37 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Scale } from "lucide-react";
+
 const Index = () => {
+  const navigate = useNavigate();
+
+  // Uncomment to automatically redirect to Justice Bot
+  // useEffect(() => {
+  //   navigate("/justice-bot");
+  // }, [navigate]);
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-      <div className="text-center">
-        {/* TODO: replace everything here with the actual app! */}
-        <h1 className="text-2xl font-semibold text-slate-800 flex items-center justify-center gap-3">
-          <svg
-            className="animate-spin h-8 w-8 text-slate-400"
-            viewBox="0 0 50 50"
-          >
-            <circle
-              className="opacity-30"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-            />
-            <circle
-              className="text-slate-600"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-              strokeDasharray="100"
-              strokeDashoffset="75"
-            />
-          </svg>
-          Generating your app...
-        </h1>
+      <div className="text-center max-w-lg px-4">
+        <div className="flex justify-center mb-6">
+          <div className="bg-primary/10 p-4 rounded-full">
+            <Scale className="h-12 w-12 text-primary" />
+          </div>
+        </div>
+        <h1 className="text-3xl font-bold text-slate-800 mb-4">Justice Bot</h1>
+        <p className="text-slate-600 mb-8">
+          Your AI-powered legal assistant, providing guidance and information to
+          help you navigate legal questions.
+        </p>
+        <Button
+          onClick={() => navigate("/justice-bot")}
+          className="gap-2"
+          size="lg"
+        >
+          Get Started
+          <ArrowRight className="h-4 w-4" />
+        </Button>
       </div>
     </div>
   );
